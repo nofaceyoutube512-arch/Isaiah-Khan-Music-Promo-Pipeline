@@ -13,6 +13,5 @@ RUN pip install -r requirements.txt
 
 COPY video_server.py .
 
-EXPOSE 5000
-
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "180", "video_server:app"]
+EXPOSE 8080
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--timeout", "180", "video_server:app"]
